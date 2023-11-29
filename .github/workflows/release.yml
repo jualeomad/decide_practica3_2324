@@ -10,7 +10,7 @@ permissions:
 
 jobs:
     buildTest:
-        uses: jualeomad/decide_practica3_2324/.github/workflows/django.yml@master
+        uses: ./.github/workflows/django.yml
     release:
         needs: buildTest
         runs-on: ubuntu-latest
