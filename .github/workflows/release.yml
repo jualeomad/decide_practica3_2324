@@ -1,0 +1,21 @@
+name: release
+
+on:
+    push:
+        tags:
+            - '*'
+
+permissions:
+    contents: write
+
+jobs:
+    buildTest:
+        uses: jualeomad/decide_practica3_2324/.github/workflows/django.yml@master
+    release:
+        needs: buildTest
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v3
+            - name: Release
+              uses: softprops/action-gh-release@v1
